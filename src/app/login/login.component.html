@@ -1,0 +1,33 @@
+<div class="container-fluid ">
+    <div class="row cust-grid mb-4 vertical-center " style="min-height: 90vh;">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 mainClass"> 
+            <h4 class="text-center my-4">Please login to continue</h4> 
+             
+            <form  class="formClass" [formGroup]="loginForm" (submit)="onSubmit()">
+                <div class="form-group mb-5">
+                  <label for="userName">User Name </label>
+                  <input type="userName"  class="form-control" formControlName="userName" id="userName" 
+                  placeholder="Enter User Name">
+                  <div  *ngIf="submitted && loginForm.controls.userName.errors" class="invalid-feedback showError col-75">
+                    <div *ngIf="loginForm.controls.userName.errors['required']">User Name is required</div>
+                </div>
+                </div>
+
+
+                <div class="form-group mb-5">
+                  <label for="password1">Enter password</label>
+                  <input type="password" class="form-control" formControlName="password" id="password1" 
+                    placeholder="Enter password">
+                    <div  *ngIf="submitted && loginForm.controls.password.errors" class="invalid-feedback showError col-75">
+                        <div *ngIf="loginForm.controls.password.errors['required']">Password is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center" style="margin-top: 70px;">
+                    <button type="submit" class="btn px-5 bgrayColor btnWidth" 
+                    >Login</button>
+                </div>
+            </form>  
+        </div>
+    </div>
+</div>

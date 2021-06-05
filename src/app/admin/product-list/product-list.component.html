@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background:#64b6ac7d">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Product List</a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/admin/feedback']" routerLinkActive="router-link-active">Feedback</a>
+        </li>
+      </ul>
+      <div> <label><b>Sort :</b> &nbsp;</label>
+        <select [(ngModel)]="sortby" (change)="reload()" class="selectClass">
+            <option value="lowtohigh">low to high</option>
+            <option value="hightolow">high to low</option>
+        </select></div>
+    </div>
+  </nav>
+
+
+<div class="row rowClass">
+    <div class="col-xs-3 col-xm-3 col-xl-3 col-l-3 tile" *ngFor="let x of prodcutsData">
+        <div class="row innerClass" >
+
+            <div class="col-12" style="text-align: center; ">
+                <h6>{{x.ProductTitle}}</h6>
+            </div>
+
+            <div class="col-9">
+                <p style="font-size: small;">Collection: {{x.Collection}}</p>
+            </div>
+
+            <div class="col-3">
+                <p style="text-align: right;font-size: small;">Price:{{x.Price}}/-</p>
+            </div>
+
+            <div class="col-12">
+                <img class="card-img-top"
+                    [src]="x.ListImagePath + x.Images.split('|')[1]"
+                    alt="Card image">
+            </div>
+            <ul style="font-size: small;">
+                <li>NetQuantity: {{x.NetQuantity}}</li>
+                <li>Style no. : {{x.StyleNumber}}</li>
+                <li>AvailableSizes : {{x.AvailableSizes}}</li>
+                <li>ProductCode : {{x.ProductCode}}</li>
+                <li>StyleName: {{x.StyleName}}</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
